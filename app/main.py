@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
+import app.models  # noqa: F401 — registers all models with Base.metadata
 from app.routers import work_orders, machines, technicians, dashboard
 
 Base.metadata.create_all(bind=engine)
